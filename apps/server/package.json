@@ -10,6 +10,7 @@
     "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.111.0",
     "@better-auth/api-key": "^1.6.23",
     "@huddl/shared": "workspace:*",
     "@neondatabase/serverless": "^1.1.0",
