@@ -6,6 +6,7 @@ import { Summaries } from "@/routes/summaries";
 import { SummaryForm } from "@/routes/summary-form";
 import { ContextView } from "@/routes/context";
 import { ApiKeys } from "@/routes/api-keys";
+import { Live } from "@/routes/live";
 
 function Layout() {
   return (
@@ -25,6 +26,7 @@ export function App() {
       <Route element={<AuthGate />}>
         <Route element={<Layout />}>
           <Route index element={<Summaries />} />
+          <Route path="live" element={<Live />} />
           <Route path="summaries/new" element={<SummaryForm />} />
           <Route path="summaries/:id/edit" element={<SummaryForm />} />
           <Route path="context" element={<ContextView />} />

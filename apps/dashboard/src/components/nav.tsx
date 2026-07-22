@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const links = [
   { to: "/", label: "Summaries", end: true },
+  { to: "/live", label: "Live" },
   { to: "/context", label: "Context" },
   { to: "/api-keys", label: "API keys" },
 ];
