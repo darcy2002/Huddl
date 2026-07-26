@@ -55,4 +55,12 @@ export const api = {
   getContext: () => request<ContextResponse>("/context"),
   recompile: () =>
     request<MasterContext | { skipped: true; reason: string }>("/compile", { method: "POST" }),
+
+  importChats: (
+    items: { project: string; title: string; date: string; rawText: string; sourceUuid?: string }[],
+  ) =>
+    request<{ inserted: number; skipped: number }>("/import", {
+      method: "POST",
+      body: JSON.stringify({ items }),
+    }),
 };

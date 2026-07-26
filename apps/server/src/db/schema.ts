@@ -6,6 +6,9 @@ export const chatSummaries = pgTable("chat_summaries", {
   date: date("date").notNull(),
   title: text("title").notNull(),
   content: text("content").notNull(),
+  // Set for summaries imported from a Claude export (the conversation uuid) so
+  // re-importing the same conversation is skipped. Null for hand-written summaries.
+  sourceUuid: text("source_uuid").unique(),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 

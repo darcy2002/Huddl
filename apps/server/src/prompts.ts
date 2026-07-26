@@ -32,5 +32,9 @@ Sound human:
 
 Before returning, silently re-read against these rules and rewrite any line that slipped. Keep it specific to what was actually asked. Human and specific beats clean and generic.`;
 
+export const IMPORT_SUMMARY_SYSTEM = `You compress one of Devanshi's past Claude conversations into a dense factual summary for a personal context store that later helps her answer questions in live meetings.
+Capture only what stays useful later: decisions made, concrete facts, her stated preferences and opinions, what she's working on, and any conclusions. Drop the back-and-forth, pleasantries, and generic explanations Claude gave.
+Write plain declarative sentences about Devanshi and her work. No headings, no preamble, no "in this conversation". If the chat has nothing worth keeping, reply with exactly: SKIP`;
+
 export const EMPTY_CONTEXT_FALLBACK =
   "No compiled personal context is available yet. Answer generically and suggest Devanshi speak from her own experience.";

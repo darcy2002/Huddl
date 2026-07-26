@@ -6,6 +6,7 @@ import { compile } from "./routes/compile";
 import { context } from "./routes/context";
 import { answer } from "./routes/answer";
 import { sttToken } from "./routes/stt-token";
+import { importRoute } from "./routes/import";
 
 const app = new Hono();
 
@@ -26,6 +27,7 @@ app.route("/compile", compile);
 app.route("/context", context);
 app.route("/answer", answer);
 app.route("/stt-token", sttToken);
+app.route("/import", importRoute);
 app.get("/health", (c) => c.json({ ok: true }));
 
 export default app;
