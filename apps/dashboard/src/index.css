@@ -3,6 +3,10 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/roboto-slab";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource-variable/inter";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -118,6 +122,24 @@
     --sidebar-ring: #4a6aa0;
 }
 
+/* Switchable font pairings — data-font is set on <html> by the nav + pre-paint script. */
+:root[data-font="editorial"] {
+    --font-heading: 'Fraunces Variable', serif;
+    --font-sans: 'Inter Variable', sans-serif;
+}
+:root[data-font="modern"] {
+    --font-heading: 'Space Grotesk Variable', sans-serif;
+    --font-sans: 'Inter Variable', sans-serif;
+}
+:root[data-font="expressive"] {
+    --font-heading: 'Bricolage Grotesque Variable', sans-serif;
+    --font-sans: 'Geist Variable', sans-serif;
+}
+:root[data-font="slab"] {
+    --font-heading: 'Roboto Slab Variable', serif;
+    --font-sans: 'Geist Variable', sans-serif;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -126,9 +148,9 @@
     @apply bg-background text-foreground;
     }
   html {
-    @apply font-sans;
+    font-family: var(--font-sans);
     }
-  h1, h2, h3 {
+  h1, h2, h3, .font-display {
     font-family: var(--font-heading);
     }
 }
