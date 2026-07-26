@@ -7,6 +7,8 @@
 @import "@fontsource-variable/space-grotesk";
 @import "@fontsource-variable/bricolage-grotesque";
 @import "@fontsource-variable/inter";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/onest";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -123,6 +125,14 @@
 }
 
 /* Switchable font pairings — data-font is set on <html> by the nav + pre-paint script. */
+:root[data-font="geometric"] {
+    --font-heading: 'Plus Jakarta Sans Variable', sans-serif;
+    --font-sans: 'Plus Jakarta Sans Variable', sans-serif;
+}
+:root[data-font="rounded"] {
+    --font-heading: 'Onest Variable', sans-serif;
+    --font-sans: 'Onest Variable', sans-serif;
+}
 :root[data-font="editorial"] {
     --font-heading: 'Fraunces Variable', serif;
     --font-sans: 'Inter Variable', sans-serif;
