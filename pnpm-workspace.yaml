@@ -5,3 +5,7 @@ allowBuilds:
   esbuild: true
   "@tailwindcss/oxide": true
   lightningcss: true
+# Force a single zod version across the workspace. better-auth mandates zod 4,
+# and mixing zod 3 (our schemas) + zod 4 broke type inference on Vercel's install.
+overrides:
+  zod: 4.4.3
