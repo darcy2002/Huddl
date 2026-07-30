@@ -99,7 +99,7 @@ importRoute.post("/", async (c) => {
   if (toInsert.length) {
     const rows = await db
       .insert(chatSummaries)
-      .values(toInsert)
+      .values(toInsert as (typeof chatSummaries.$inferInsert)[])
       .onConflictDoNothing({ target: chatSummaries.sourceUuid })
       .returning({ id: chatSummaries.id });
     inserted = rows.length;

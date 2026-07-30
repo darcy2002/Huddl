@@ -12,7 +12,12 @@ summaries.use("*", requireAuth);
 summaries.post("/", async (c) => {
   const parsed = createSummarySchema.safeParse(await c.req.json());
   if (!parsed.success) return c.json({ error: parsed.error.flatten() }, 400);
-  const [row] = await db.insert(chatSummaries).values(parsed.data).returning();
+  // zod has validated the shape; assert Drizzle's insert type so the build
+  // doesn't depend on how the cross-package zod inference resolves (see below).
+  const [row] = await db
+    .insert(chatSummaries)
+    .values(parsed.data as typeof chatSummaries.$inferInsert)
+    .returning();
   return c.json(row, 201);
 });
 
