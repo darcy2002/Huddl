@@ -1,4 +1,17 @@
 {
   "extends": "../../tsconfig.base.json",
+  // Options duplicated from the base config so they still apply if Vercel's build
+  // can't resolve the extends path from this subdirectory (which was silently
+  // dropping esModuleInterop/skipLibCheck and causing interop build failures).
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
   "include": ["src", "drizzle.config.ts"]
 }

@@ -1,4 +1,4 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { Anthropic } from "@anthropic-ai/sdk";
 
 export const MODEL = "claude-sonnet-4-6";
 export const SUMMARY_MODEL = "claude-haiku-4-5"; // cheap/fast, for bulk import summarization
