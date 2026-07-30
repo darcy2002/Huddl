@@ -1,6 +1,5 @@
 import { Hono } from "hono";
 import type { Context } from "hono";
-import type Anthropic from "@anthropic-ai/sdk";
 import { db } from "../db";
 import { chatSummaries, masterContext } from "../db/schema";
 import { cronOrAuth } from "../middleware/cron-or-auth";
@@ -29,8 +28,7 @@ async function recompile(c: Context) {
   });
 
   const content = res.content
-    .filter((b): b is Anthropic.TextBlock => b.type === "text")
-    .map((b) => b.text)
+    .map((b) => (b.type === "text" ? b.text : ""))
     .join("");
 
   const tokenEstimate = await estimateTokens(content);

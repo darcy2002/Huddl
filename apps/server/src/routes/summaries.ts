@@ -31,7 +31,7 @@ summaries.patch("/:id", async (c) => {
   if (!parsed.success) return c.json({ error: parsed.error.flatten() }, 400);
   const [row] = await db
     .update(chatSummaries)
-    .set(parsed.data)
+    .set(parsed.data as Partial<typeof chatSummaries.$inferInsert>)
     .where(eq(chatSummaries.id, c.req.param("id")))
     .returning();
   return row ? c.json(row) : c.json({ error: "not found" }, 404);

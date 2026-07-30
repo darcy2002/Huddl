@@ -1,7 +1,6 @@
 import { Hono } from "hono";
 import { inArray } from "drizzle-orm";
 import { z } from "zod";
-import type Anthropic from "@anthropic-ai/sdk";
 import { db } from "../db";
 import { chatSummaries } from "../db/schema";
 import { requireAuth, type AuthEnv } from "../middleware/require-auth";
@@ -38,8 +37,7 @@ async function summarize(rawText: string): Promise<string | null> {
     messages: [{ role: "user", content: rawText }],
   });
   const text = res.content
-    .filter((b): b is Anthropic.TextBlock => b.type === "text")
-    .map((b) => b.text)
+    .map((b) => (b.type === "text" ? b.text : ""))
     .join("")
     .trim();
   return !text || text === "SKIP" ? null : text;
