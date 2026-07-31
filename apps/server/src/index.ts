@@ -1,12 +1,12 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { auth } from "./auth";
-import { summaries } from "./routes/summaries";
-import { compile } from "./routes/compile";
-import { context } from "./routes/context";
-import { answer } from "./routes/answer";
-import { sttToken } from "./routes/stt-token";
-import { importRoute } from "./routes/import";
+import { auth } from "./auth.js";
+import { summaries } from "./routes/summaries.js";
+import { compile } from "./routes/compile.js";
+import { context } from "./routes/context.js";
+import { answer } from "./routes/answer.js";
+import { sttToken } from "./routes/stt-token.js";
+import { importRoute } from "./routes/import.js";
 
 const app = new Hono();
 

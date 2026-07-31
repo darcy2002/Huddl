@@ -1,11 +1,11 @@
 import { Hono } from "hono";
 import type { Context } from "hono";
-import { db } from "../db";
-import { chatSummaries, masterContext } from "../db/schema";
-import { cronOrAuth } from "../middleware/cron-or-auth";
-import { type AuthEnv } from "../middleware/require-auth";
-import { anthropic, estimateTokens, MODEL, MASTER_CONTEXT_MAX_TOKENS } from "../anthropic";
-import { SYNTHESIS_SYSTEM } from "../prompts";
+import { db } from "../db/index.js";
+import { chatSummaries, masterContext } from "../db/schema.js";
+import { cronOrAuth } from "../middleware/cron-or-auth.js";
+import { type AuthEnv } from "../middleware/require-auth.js";
+import { anthropic, estimateTokens, MODEL, MASTER_CONTEXT_MAX_TOKENS } from "../anthropic.js";
+import { SYNTHESIS_SYSTEM } from "../prompts.js";
 
 export const compile = new Hono<AuthEnv>();
 compile.use("*", cronOrAuth);

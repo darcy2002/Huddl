@@ -1,8 +1,8 @@
 import { Hono } from "hono";
 import { desc } from "drizzle-orm";
-import { db } from "../db";
-import { masterContext } from "../db/schema";
-import { requireAuth, type AuthEnv } from "../middleware/require-auth";
+import { db } from "../db/index.js";
+import { masterContext } from "../db/schema.js";
+import { requireAuth, type AuthEnv } from "../middleware/require-auth.js";
 
 export const context = new Hono<AuthEnv>();
 context.use("*", requireAuth);

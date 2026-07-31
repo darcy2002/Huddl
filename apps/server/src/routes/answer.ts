@@ -1,12 +1,12 @@
 import { Hono } from "hono";
 import { streamSSE } from "hono/streaming";
 import { desc } from "drizzle-orm";
-import { answerRequestSchema } from "@huddl/shared";
-import { db } from "../db";
-import { masterContext } from "../db/schema";
-import { requireAuth, type AuthEnv } from "../middleware/require-auth";
-import { anthropic, MODEL, ANSWER_MAX_TOKENS } from "../anthropic";
-import { ANSWER_INSTRUCTIONS, EMPTY_CONTEXT_FALLBACK } from "../prompts";
+import { answerRequestSchema } from "../schemas.js";
+import { db } from "../db/index.js";
+import { masterContext } from "../db/schema.js";
+import { requireAuth, type AuthEnv } from "../middleware/require-auth.js";
+import { anthropic, MODEL, ANSWER_MAX_TOKENS } from "../anthropic.js";
+import { ANSWER_INSTRUCTIONS, EMPTY_CONTEXT_FALLBACK } from "../prompts.js";
 
 export const answer = new Hono<AuthEnv>();
 answer.use("*", requireAuth); // extension uses x-api-key (session via enableSessionForAPIKeys)

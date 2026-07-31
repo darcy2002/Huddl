@@ -1,5 +1,5 @@
 import { createMiddleware } from "hono/factory";
-import { auth } from "../auth";
+import { auth } from "../auth.js";
 
 export type AuthEnv = {
   Variables: { user: typeof auth.$Infer.Session.user };

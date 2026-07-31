@@ -1,5 +1,5 @@
 import { createMiddleware } from "hono/factory";
-import { requireAuth, type AuthEnv } from "./require-auth";
+import { requireAuth, type AuthEnv } from "./require-auth.js";
 
 // Vercel Cron sends `Authorization: Bearer $CRON_SECRET` (GET only). Accept that,
 // else fall back to session/api-key auth. Fails closed when CRON_SECRET is unset.

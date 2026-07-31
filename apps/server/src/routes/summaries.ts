@@ -1,9 +1,9 @@
 import { Hono } from "hono";
 import { eq } from "drizzle-orm";
-import { createSummarySchema, updateSummarySchema } from "@huddl/shared";
-import { db } from "../db";
-import { chatSummaries } from "../db/schema";
-import { requireAuth, type AuthEnv } from "../middleware/require-auth";
+import { createSummarySchema, updateSummarySchema } from "../schemas.js";
+import { db } from "../db/index.js";
+import { chatSummaries } from "../db/schema.js";
+import { requireAuth, type AuthEnv } from "../middleware/require-auth.js";
 
 export const summaries = new Hono<AuthEnv>();
 

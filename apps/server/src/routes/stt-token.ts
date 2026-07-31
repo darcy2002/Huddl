@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { requireAuth, type AuthEnv } from "../middleware/require-auth";
+import { requireAuth, type AuthEnv } from "../middleware/require-auth.js";
 
 export const sttToken = new Hono<AuthEnv>();
 sttToken.use("*", requireAuth);

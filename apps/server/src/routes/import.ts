@@ -1,11 +1,11 @@
 import { Hono } from "hono";
 import { inArray } from "drizzle-orm";
 import { z } from "zod";
-import { db } from "../db";
-import { chatSummaries } from "../db/schema";
-import { requireAuth, type AuthEnv } from "../middleware/require-auth";
-import { anthropic, SUMMARY_MODEL, IMPORT_SUMMARY_MAX_TOKENS } from "../anthropic";
-import { IMPORT_SUMMARY_SYSTEM } from "../prompts";
+import { db } from "../db/index.js";
+import { chatSummaries } from "../db/schema.js";
+import { requireAuth, type AuthEnv } from "../middleware/require-auth.js";
+import { anthropic, SUMMARY_MODEL, IMPORT_SUMMARY_MAX_TOKENS } from "../anthropic.js";
+import { IMPORT_SUMMARY_SYSTEM } from "../prompts.js";
 
 // One batch of conversations to summarize + store. The client sends the whole
 // export in batches so it can show progress; each item is one conversation.
